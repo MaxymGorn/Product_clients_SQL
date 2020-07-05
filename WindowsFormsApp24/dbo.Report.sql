@@ -1,0 +1,55 @@
+﻿--create view Report as
+--select  
+--st.Name as N'Style name',
+--per.Name as N'Performer name',
+--md.Name as N'Disc name',
+--md.DateBegin as N'Date begin',
+--aut.Name as N'Autors name'
+--from Musicdisc md inner join Style st on md.StyleId=st.Id
+--inner join Performer per on md.PerformerId=per.Id
+--inner join Autors aut on md.AutorsId=aut.Id
+
+--create view ReportSound as
+--select
+--s.Name  as N'Sound name',
+--s.MusicdiscId  as N'Music Id',
+--s.Time as N'Time',
+--md.Name as N'Name disc',
+--aut.Name+' '+aut.Surname as N'Autor full name',
+--perf.Name as N'Performer name',
+--st.Name as N'Style name'
+--from
+--Sounds s inner join  Musicdisc md on s.MusicdiscId=md.Id, 
+--Style st, Autors aut, Performer perf
+--where md.AutorsId=aut.Id and md.PerformerId=perf.Id and md.StyleId=st.Id
+
+--create view ReportStyle as
+--select
+--s.Name as N'Style name',
+--s.Id as N'Id'
+--from
+--Style s
+
+--create view ReportDisc as
+--select 
+--	md.Name as N'Disc name',
+--	rp.[Performer name] as N'Performer name',
+--	md.DateBegin as N'Date begin',
+--	ra.[Autor name]+' '+ra.[Autor surname] as N'Full name autor',
+--	rs.[Style name] as N'Style name'
+--from Musicdisc md inner join ReportPerf rp on md.PerformerId=rp.Id,
+--ReportAutors ra, ReportStyle rs
+--where md.AutorsId=ra.Id and rs.Id=md.StyleId
+
+--create view ReportPerf as
+--select 
+--p.Name as N'Performer name',
+--c.Name as N'Country Id',
+--p.Id as N'Id'
+--from Performer p inner join Countries c on  p.CountryId=c.Id 
+
+--create view ReportAutors as
+--select aut.Name as N'Autor name',
+--aut.Surname as N'Autor surname',
+--aut.Id as N'Id'
+--from Autors aut
